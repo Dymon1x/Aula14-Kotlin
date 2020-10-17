@@ -40,7 +40,7 @@ class CadastroActivity : AppCompatActivity() {
 
     fun validaSenha(){
         if (getTextInfo().senha == getTextInfo().senhaConfirma){
-
+            return true
         }
     }
 
