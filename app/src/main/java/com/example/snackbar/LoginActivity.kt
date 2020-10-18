@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    //tela em branco - vai redirecionar para a tela com toast bem vindo
     fun getInfoUserLogin(): Usuario {
         val username = edUserName.text.toString()
         val senha = edPassword.text.toString()
@@ -34,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
+    // tela cadastro
     fun getInfoUserCadastro(){
     }
 

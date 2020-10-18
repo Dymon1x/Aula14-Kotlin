@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -16,32 +17,33 @@ class CadastroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         setContentView(R.layout.activity_cadastro)
 
         btnCadastrar.setOnClickListener {
             cadastro(getTextInfo())
+
         }
-
-//        var usuario = intent.getSerializableExtra("key") as? Usuario
-//        showSnack("Cadastrado o usuario ${usuario!!.username}")
-
+//
+//        var name = intent.getSerializableExtra("key") as? Usuario
+//        showSnack("Cadastrado o usuario ${name!!.username}")
     }
-
+//
+//    fun validaSenha(){
+//        if (getTextInfo().senha != getTextInfo().senhaConfirma) {
+//            when (x){
+//                R.id.edPasswordCadastro -> showSnack("Senha Correta")
+//                R.id.edPasswordConfirmaCadastro -> showSnack("Senha Incorreta")
+//                else -> println("erro")
+//            }
+//        }
+//    }
+    
     fun getTextInfo(): Usuario{
         val nome = edNomeCadastro.text.toString()
         val email = edEmailCadastro.text.toString()
         val senha = edPassword.text.toString()
         val senhaConfirmar = edPasswordConfirmaCadastro.text.toString()
-
         return Usuario(nome, email, senha, senhaConfirmar)
-    }
-
-    fun validaSenha(){
-        if (getTextInfo().senha == getTextInfo().senhaConfirma){
-            return true
-        }
     }
 
     private fun cadastro(usuario: Usuario) {
@@ -49,13 +51,13 @@ class CadastroActivity : AppCompatActivity() {
         intent.putExtra("key", usuario)
         startActivity(intent)
     }
-//
-//    fun showSnack(msg: String) {
-//        var snack = Snackbar.make(btnCadastrar, msg, Snackbar.LENGTH_SHORT)
-//        snack.setAction("Cadastrado", View.OnClickListener {
-//            Log.i(TAG, "Clicando em cadastrar")
-//        })
-//
-//    }
+
+    fun showSnack(msg: String) {
+        var snack = Snackbar.make(btnCadastrar, msg, Snackbar.LENGTH_SHORT)
+        snack.setAction("Senha invalida", View.OnClickListener {
+            Log.i(TAG, "Senha incorreta")
+        })
+
+    }
 
 }
