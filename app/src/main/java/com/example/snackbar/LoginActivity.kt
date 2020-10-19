@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
         val username = edUserName.text.toString()
         val senha = edPassword.text.toString()
 
-        return Usuario(username, null, senha, null)
+        return Usuario(1,username,  senha)
     }
 
      fun novaTelaLogin(usuario: Usuario) {
