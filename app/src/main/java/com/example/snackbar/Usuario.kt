@@ -1,10 +1,9 @@
 package com.example.snackbar
 import java.io.Serializable
 
-class Usuario(var username: String, var email: String?, var senha: String?, var senhaConfirma: String?): Serializable {
+class Usuario(var id: Int, var username: String, var senha: String?): Serializable {
     override fun toString(): String {
-        return "{Olá usuario $username, email: $email, senha: $senha}"
+        return "{Olá id: $id do usuario $username, senha: $senha}"
     }
-
 }
 
